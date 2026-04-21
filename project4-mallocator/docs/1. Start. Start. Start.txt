@@ -1,0 +1,21 @@
+1. Start
+2. mm_init
+2. Which operation?
+    a. mm_malloc:
+        size 0이면 바로 return
+        충분한 크기가 있냐?
+        Yes: allocate_block
+        No: expand_heap
+        return bp
+    b. mm_free:
+        bp가 NULL이면 바로 return
+        bp에 할당되지 않음을 mark.
+        insert_into_free_list()
+        coalescing_blocks()
+        return
+    c. mm_realloc:
+        ptr이 NULL이면 mm_malloc()
+        size가 0이면 mm_free()
+        1. In-place:
+        2. expand_heap:
+        3. mm_malloc() 호출해 원래 있던 내용 copy한 후 return. ptr은 mm_free해준다.
